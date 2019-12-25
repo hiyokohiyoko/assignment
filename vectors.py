@@ -49,6 +49,17 @@ class Vec(object):
                 sq += (int(self.a[i]) - int(v.a[i])) ** 2
             return math.sqrt(sq)
     
+    def inpro(self, v):
+        if len(self.a) != len(v.a):
+            print('these vectors are not in the same space.')
+            return
+        else:
+            inn = 0
+            for i in range(len(self.a)):
+                inn += (int(self.a[i]) * int(v.a[i]))
+            return inn
+
+    
 # 以下、動作確認
 v1 = Vec("1 2 3")
 print(v1)
@@ -58,9 +69,11 @@ print(v2)
 print(v1 + v2)
 print(v1 - v2)
 print(v1.dist(v2))
+print(v1.inpro(v2))
 
 v3 = Vec('1 2 3 4')
 print(v1 + v3)
 print(v1 - v3)
 print(v1.dist(v3))
+print(v1.inpro(v3))
 
