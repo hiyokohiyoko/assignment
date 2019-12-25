@@ -22,7 +22,7 @@ class Vec(object):
         else:
             va = ''
             for i in range(len(self.a)):
-                va += str(int(self.a[i])+ int(v.a[i]))
+                va += str(float(self.a[i])+ float(v.a[i]))
                 if i < len(self.a) - 1:
                     va += ' '
             return Vec(va)
@@ -34,7 +34,7 @@ class Vec(object):
         else:
             va = ''
             for i in range(len(self.a)):
-                va += str(int(self.a[i]) - int(v.a[i]))
+                va += str(float(self.a[i]) - float(v.a[i]))
                 if i < len(self.a) - 1:
                     va += ' '
             return Vec(va)
@@ -46,7 +46,7 @@ class Vec(object):
         else:
             sq = 0
             for i in range(len(self.a)):
-                sq += (int(self.a[i]) - int(v.a[i])) ** 2
+                sq += (float(self.a[i]) - float(v.a[i])) ** 2
             return math.sqrt(sq)
     
     def inpro(self, v):
@@ -56,7 +56,7 @@ class Vec(object):
         else:
             inn = 0
             for i in range(len(self.a)):
-                inn += (int(self.a[i]) * int(v.a[i]))
+                inn += (float(self.a[i]) * float(v.a[i]))
             return inn
 
     
