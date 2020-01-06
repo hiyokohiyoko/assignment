@@ -1,0 +1,55 @@
+Program = {
+    Statement*
+    #Block
+} EOF
+
+EOF = !.
+
+Statement = Subj   // 主語付き文(優先)
+    / NSubj　　　　// 主語無し文
+
+Subj = {          // 主語付き文の定義
+    '私は、'　_ Sentence
+    #Subj1
+} _ / {
+    '僕は、'　_ Sentence
+    #Subj2
+} _ / {
+    '俺は、'　_ Sentence
+    #Subj3
+} _ /{
+    '私は'　_ Sentence
+    #Subj4
+} _ /{
+    '僕は'　_ Sentence
+    #Subj5
+} _ /{
+    '僕は'　_ Sentence
+    #Subj6
+} _ /{
+    '私、'　_ Sentence
+    #Subj7
+} _ /{
+    '僕、'　_ Sentence
+    #Subj8
+} _ /{
+    '俺、'　_ Sentence
+    #Subj9
+} _ /{
+    '私'　_ Sentence
+    #Subj10
+} _/{
+    '僕'　_ Sentence
+    #Subj11
+} _ /{
+    '俺'　_ Sentence
+    #Subj12
+} _
+
+NSubj = {
+    _ Sentence
+} _ 
+
+_ = [ \t\r\n]*
+
+
