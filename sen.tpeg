@@ -4,7 +4,7 @@ example W 興味深い
 example W 好き
 example W こんにちは、世界
 example W 、、、
-example Sentence Pythonは興味深いから好きだ
+example Sentence Python、興味深い、好きだ
 
 Program = {
     Statement*
