@@ -10,17 +10,17 @@ from mpl_toolkits.mplot3d import Axes3D
 import math
 
 class Vec(object):
-    def __init__(self, s: str):
-        self.a = s.split(' ')
+    def __init__(self, str: str):
+        self.a = str.split(' ')
 
     def __repr__(self):
-        s = '['
+        str = '['
         for i in range(len(self.a)):
-            s += self.a[i] 
+            str += self.a[i] 
             if i < len(self.a)-1:
-                s += ' '
-        s += ']'
-        return s
+                str += ' '
+        str += ']'
+        return str
 
     def __add__(self, v):
         if len(self.a) != len(v.a):
@@ -70,7 +70,31 @@ def ana(tree):
     pass
 
 def plot(vec: Vec):
-    
+    print(vec)
+
+    s = int(vec.a[0])
+    i = int(vec.a[1])
+    l = int(vec.a[2])
+    sub.append(s)
+    inte.append(i)
+    like.append(l)
+
+    ss = np.array(sub)
+    ii = np.array(inte)
+    ll = np.array(like)
+
+    fig = plt.figure()
+    ax = fig.add_subplot(projection='3d')
+    ax.legend()
+    ax.set_title('result of analysis', fontsize = 15)
+    ax.set_xlim(-100, 100)
+    ax.set_ylim(-100, 100)
+    ax.set_zlim(-100, 100)
+    ax.set_xlabel('subject')
+    ax.set_ylabel('interest')
+    ax.set_zlabel('likability')
+    ax.scatter(ss, ii, ll, s = 50, c = 'c', marker = 'o', alpha = 1)
+    fig.show()
 
 def t(s: str):
     tree = parser(s)
@@ -80,11 +104,16 @@ def t(s: str):
         vec = ana(tree)
         plot(vec)
 
+sub = []
+inte = []
+like = []
+
 def main():
+
     fig = plt.figure()
     ax = fig.add_subplot(projection='3d')
     ax.legend()
-    plt.title('result of analysis')
+    ax.set_title('result of analysis', fontsize = 15)
     ax.set_xlim(-100, 100)
     ax.set_ylim(-100, 100)
     ax.set_zlim(-100, 100)
@@ -92,6 +121,10 @@ def main():
     ax.set_ylabel('interest')
     ax.set_zlabel('likability')
     fig.show()
+
+    #plot(Vec("0 1 2"))
+    #plot(Vec("-50 40 70"))
+
     try:
         while True:
             s = input('>>> ')
