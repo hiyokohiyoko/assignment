@@ -16,7 +16,7 @@ EOF = !.
 Statement = Subj   // 主語付き文(優先)
     / NSubj       // 主語無し文
 
-_ = [ \t\r\n]*
+_ = [\s]*
 
 Subj = {          // 主語付き文の定義
     '私は、' _ Sentence '。'
