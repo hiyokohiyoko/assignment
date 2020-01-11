@@ -1,0 +1,72 @@
+example W Python3
+example W be_interested_in
+example W love
+example Sentence Python3 is difficult
+example Sentence I love Python3
+example Sentence I am_interested_in Python3 and I like it
+example NSubj I am_interested_in Python3 and I like it.
+example Subj I think Python3 is difficult.
+
+Program = {
+    Statement*
+    #Block
+} EOF
+
+EOF = !.
+
+Statement = Subj / NSubj  // Subj:「I think」等あり 　NSubj:なし
+
+_ = [\s]+ // 英単語間は必ず半角空白があるものとする
+
+Subj = {
+    'I think' _ Sentence '.'
+    #Subj1
+} / {
+    'I thought' _ Sentence '.'
+    #Subj2
+} / {
+    'I feel' _ Sentence '.'
+    #Subj3
+}
+
+NSubj = {
+    Sentence '.'
+    #NSubj
+}
+
+Sentence = {
+    'I' _ W _ W _ 'and' _ 'I' _ W _ 'it'   // 複合形
+    #Sent1
+} / {
+    'I' _ W _ W _ 'so' _ 'I' _ W _ 'it'
+    #Sent2
+} / {
+    'I' _ W _ W _ 'but' _ 'I' _ W _ 'it'
+    #Sent3
+} / {
+    'I' _ W _ W    // SVO
+    #Sent4
+} / {
+    W _ 'is' _ W  // SVC
+    #Sent5
+} / {
+    W _ 'was' _ W
+    #Sent6
+} / {
+    W _ 'are' _ W
+    #Sent7
+} / {
+    W _ 'were' _ W
+    #Sent8
+} / {
+    W          // 単語のみ
+    #Sent9
+}
+
+W = {          // 英単語
+    [0-9a-zA-Z_]+
+    #W
+}
+
+
+
