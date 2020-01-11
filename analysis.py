@@ -65,10 +65,42 @@ class Vec(object):
             for i in range(len(self.a)):
                 inn += (float(self.a[i]) * float(v.a[i]))
             return inn
-
-def ana(tree):
+#単語のベクトル化
+def v(arr: array):
     pass
 
+#構文木の解析
+def ana(tree):
+    if tree == 'Block':
+        return ana(tree[0])
+    if tree == 'Subj1':
+        return ana(tree[0])
+    if tree == 'Subj2':
+        return ana(tree[0])
+    if tree == 'Subj3':
+        return ana(tree[0])
+    if tree == 'NSubj':
+        return ana(tree[0])
+    if tree == 'Sent1':
+        return v([tree[0], tree[1], tree[2]])
+    if tree == 'Sent2':
+        return v([tree[0], tree[1], tree[2]])
+    if tree == 'Sent3':
+        return v([tree[0], tree[1], tree[2]])
+    if tree == 'Sent4':
+        return v([tree[0], tree[1]])
+    if tree == 'Sent5':
+        return v([tree[0], tree[1]])
+    if tree == 'Sent6':
+        return v([tree[0], tree[1]])
+    if tree == 'Sent7':
+        return v([tree[0], tree[1]])
+    if tree == 'Sent8':
+        return v([tree[0], tree[1]])
+    if tree == 'Sent9':
+        return v([tree[0])
+
+#ベクトルのグラフへのプロット
 def plot(vec: Vec):
     print(vec)
 
@@ -96,6 +128,7 @@ def plot(vec: Vec):
     ax.scatter(ss, ii, ll, s = 50, c = 'c', marker = 'o', alpha = 1)
     fig.show()
 
+#構文解析
 def t(s: str):
     tree = parser(s)
     if tree.isError():
@@ -104,7 +137,7 @@ def t(s: str):
         vec = ana(tree)
         plot(vec)
 
-sub = []
+sub = []      #グローバル変数
 inte = []
 like = []
 
