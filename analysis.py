@@ -6,6 +6,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
+from dictionary import dic1, dic2, dic3
+
 #ベクトルの演算を定義する
 import math
 
@@ -185,7 +187,7 @@ def main():
     try:
         while True:
             s = input('input sentences or \'dist\' to know distance of two past sentences >>> ')
-            if s == 'dist':
+            if s == 'dist':   # 過去に呟いた文章同士の「距離」を計る
                 ss = input('input two numbers(1 orogin) : ')
                 num = ss.split(' ')
                 a = int(num[0]) - 1
