@@ -65,6 +65,7 @@ class Vec(object):
             for i in range(len(self.a)):
                 inn += (float(self.a[i]) * float(v.a[i]))
             return inn
+
 #単語のベクトル化
 def v(arr):
     s = 0
@@ -140,7 +141,7 @@ def plot(vec: Vec):
 
     fig = plt.figure()
     ax = fig.add_subplot(projection='3d')
-    ax.legend()
+    # ax.legend()
     ax.set_title('result of analysis', fontsize = 15)
     ax.set_xlim(-100, 100)
     ax.set_ylim(-100, 100)
@@ -165,10 +166,10 @@ inte = []
 like = []
 
 def main():
-
+    # 最初にグラフを出しておく
     fig = plt.figure()
     ax = fig.add_subplot(projection='3d')
-    ax.legend()
+    # ax.legend()
     ax.set_title('result of analysis', fontsize = 15)
     ax.set_xlim(-100, 100)
     ax.set_ylim(-100, 100)
@@ -178,12 +179,21 @@ def main():
     ax.set_zlabel('likability')
     fig.show()
 
-    #plot(Vec("0 1 2"))
-    #plot(Vec("-50 40 70"))
+    plot(Vec("0 1 2"))
+    plot(Vec("-50 40 70"))
 
     try:
         while True:
-            s = input('>>> ')
+            s = input('input sentences or \'dist\' to know distance of two past sentences >>> ')
+            if s == 'dist':
+                ss = input('input two numbers(1 orogin) : ')
+                num = ss.split(' ')
+                a = int(num[0]) - 1
+                b = int(num[1]) - 1
+                v1 = Vec(str(sub[a]) + ' ' + str(inte[a]) + ' ' + str(like[a]))
+                v2 = Vec(str(sub[b]) + ' ' + str(inte[b]) + ' ' + str(like[b]))
+                print(v1.dist(v2))
+                continue
             if s == '':
                 break
             t(s)
