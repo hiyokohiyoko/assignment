@@ -66,8 +66,31 @@ class Vec(object):
                 inn += (float(self.a[i]) * float(v.a[i]))
             return inn
 #単語のベクトル化
-def v(arr: array):
-    pass
+def v(arr):
+    s = 0
+    i = 50  # 呟く時点で興味はある
+    l = 0
+    le = len(arr)
+    for j in range(le):
+        if arr[j] in dic1:  # 対象
+            s = dic1[arr[j]]
+        elif arr[j] in dic2:  # 興味
+            i = dic2[arr[j]]
+        elif arr[j] in dic3:  # 好感度
+            l = dic3[arr[j]]
+        else:
+            n = input('set your word. 1:subject, 2:interest, 3:likability : ')
+            p = input('set integral parameter. -100~100 : ')
+            if n == 1:
+                dic1[arr[j]] = p
+                s = p
+            elif n == 2:
+                dic2[arr[j]] = p
+                i = p
+            else:
+                dic3[arr[j]] = p
+                l = p
+        return Vec(str(s) + ' ' + str(i) + ' ' + str(l))
 
 #構文木の解析
 def ana(tree):
@@ -98,7 +121,7 @@ def ana(tree):
     if tree == 'Sent8':
         return v([tree[0], tree[1]])
     if tree == 'Sent9':
-        return v([tree[0])
+        return v([tree[0]])
 
 #ベクトルのグラフへのプロット
 def plot(vec: Vec):
