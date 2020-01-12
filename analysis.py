@@ -200,6 +200,23 @@ def main():
                 v2 = Vec(str(sub[b]) + ' ' + str(inte[b]) + ' ' + str(like[b]))
                 print(v1.dist(v2))
                 continue
+            if s == 'correct':
+                ss = input('word to correct parameter : ')
+                print('current parameter : ', end = "")
+                if ss in dic1:
+                    print(dic1[ss])
+                if ss in dic2:
+                    print(dic2[ss])
+                if ss in dic3:
+                    print(dic3[ss])
+                p = int(input('new parameter : '))
+                print(f'{ss}' + ' : ' + p)
+                if ss in dic1:
+                    dic1[ss] = p
+                if ss in dic2:
+                    dic2[ss] = p
+                if ss in dic3:
+                    dic3[ss] = p
             if s == '':
                 break
             t(s)
