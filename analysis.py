@@ -82,18 +82,18 @@ def v(arr):
         elif arr[j] in dic3:  # 好感度
             l = dic3[arr[j]]
         else:
-            n = input('set your word. 1:subject, 2:interest, 3:likability : ')
+            n = input('set about ' + f'{arr[j]}.' + ' 1:subject, 2:interest, 3:likability : ')
             p = input('set integral parameter. -100~100 : ')
             if n == 1:
-                dic1[arr[j]] = p
                 s = p
+                dic1[arr[j]] = p
             elif n == 2:
-                dic2[arr[j]] = p
                 i = p
+                dic2[arr[j]] = p
             else:
-                dic3[arr[j]] = p
                 l = p
-        return Vec(str(s) + ' ' + str(i) + ' ' + str(l))
+                dic3[arr[j]] = p
+    return Vec(str(s) + ' ' + str(i) + ' ' + str(l))
 
 #構文木の解析
 def ana(tree):
@@ -181,8 +181,12 @@ def main():
     ax.set_zlabel('likability')
     fig.show()
 
-    plot(Vec("0 1 2"))
-    plot(Vec("-50 40 70"))
+    #plot(Vec("0 1 2"))
+    #plot(Vec("-50 40 70"))
+    #vv = v(['python3', 'am_interested_in', 'like'])
+    #plot(vv)
+    u = v(['violin', 'am_interested_in', 'love'])
+    plot(u)
 
     try:
         while True:
