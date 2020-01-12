@@ -77,20 +77,20 @@ def v(arr):
     for j in range(le):
         if arr[j] in dic1:  # 対象
             s = dic1[arr[j]]
-        elif arr[j] in dic2:  # 興味
+        if arr[j] in dic2:  # 興味
             i = dic2[arr[j]]
-        elif arr[j] in dic3:  # 好感度
+        if arr[j] in dic3:  # 好感度
             l = dic3[arr[j]]
-        else:
-            n = input('set about ' + f'{arr[j]}.' + ' 1:subject, 2:interest, 3:likability : ')
-            p = input('set integral parameter. -100~100 : ')
+        if arr[j] not in dic1 and arr[j] not in dic2 and arr[j] not in dic3:
+            n = int(input('set about ' + f'{arr[j]}.' + ' 1:subject, 2:interest, 3:likability : '))
+            p = int(input('set integral parameter. -100~100 : '))
             if n == 1:
                 s = p
                 dic1[arr[j]] = p
-            elif n == 2:
+            if n == 2:
                 i = p
                 dic2[arr[j]] = p
-            else:
+            if n == 3:
                 l = p
                 dic3[arr[j]] = p
     return Vec(str(s) + ' ' + str(i) + ' ' + str(l))
