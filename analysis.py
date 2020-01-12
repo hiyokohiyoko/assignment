@@ -185,8 +185,8 @@ def main():
     #plot(Vec("-50 40 70"))
     #vv = v(['python3', 'am_interested_in', 'like'])
     #plot(vv)
-    u = v(['violin', 'am_interested_in', 'love'])
-    plot(u)
+    #u = v(['violin', 'am_interested_in', 'love'])
+    #plot(u)
 
     try:
         while True:
@@ -210,13 +210,14 @@ def main():
                 if ss in dic3:
                     print(dic3[ss])
                 p = int(input('new parameter : '))
-                print(f'{ss}' + ' : ' + p)
+                print(f'{ss}' + ' : ' + str(p))
                 if ss in dic1:
                     dic1[ss] = p
                 if ss in dic2:
                     dic2[ss] = p
                 if ss in dic3:
                     dic3[ss] = p
+                continue
             if s == '':
                 break
             t(s)
