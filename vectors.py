@@ -1,5 +1,5 @@
 
-#ベクトルの演算を定義する
+#ベクトルと行列の演算を定義する
 import math
 
 class Vec(object):
@@ -59,6 +59,28 @@ class Vec(object):
                 inn += (float(self.a[i]) * float(v.a[i]))
             return inn
 
+class Mat(object):
+    def __init__(self, ar):  # arは文字列(行ベクトル)のリスト
+        l = len(ar)
+        self.a = []
+        for i in range(l):
+            self.a.append(ar[i].split(' '))
+    
+    def __repr__(self):
+        n = len(self.a)  # n行
+        m = len(self.a[0])  # m列
+        for i in range(n):
+            for j in range(m):
+                if i + j == 0:
+                    print('[', end = '')
+                print(self.a[i][j], end = '')
+                if j < m - 1:
+                    print(' ', end = '')
+                if j == m - 1 and i < n - 1:
+                    print()
+                if j == m - 1 and i == n - 1:
+                    print(']')
+        return ''
     
 # 以下、動作確認
 v1 = Vec("1 2 3")
@@ -77,3 +99,5 @@ print(v1 - v3)
 print(v1.dist(v3))
 print(v1.inpro(v3))
 
+m1 = Mat(['1 2 3', '4 5 6', '7 8 9'])
+print(m1)

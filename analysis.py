@@ -11,7 +11,10 @@ from dictionary import dic1, dic2, dic3
 #ベクトルの演算を定義する
 import math
 
-class Vec(object):
+class space(object):
+    pass
+
+class Vec(space):
     def __init__(self, str: str): # 文字列を引数に取る　Vec("1 2 3")
         self.a = str.split(' ')   # 空白で分割した文字列のリストを保持する
 
