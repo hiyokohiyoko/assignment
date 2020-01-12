@@ -183,8 +183,8 @@ def main():
 
     #plot(Vec("0 1 2"))
     #plot(Vec("-50 40 70"))
-    vv = v(['python3', 'am_interested_in', 'like'])
-    plot(vv)
+    #vv = v(['python3', 'am_interested_in', 'like'])
+    #plot(vv)
     #u = v(['viola', 'am_interested_in', 'love'])
     #plot(u)
 
