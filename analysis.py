@@ -12,10 +12,10 @@ from dictionary import dic1, dic2, dic3
 import math
 
 class Vec(object):
-    def __init__(self, str: str):
-        self.a = str.split(' ')
+    def __init__(self, str: str): # 文字列を引数に取る　Vec("1 2 3")
+        self.a = str.split(' ')   # 空白で分割した文字列のリストを保持する
 
-    def __repr__(self):
+    def __repr__(self):           # print()文で [1 2 3]と表示
         str = '['
         for i in range(len(self.a)):
             str += self.a[i] 
@@ -48,7 +48,7 @@ class Vec(object):
                     va += ' '
             return Vec(va)
 
-    def dist(self, v):
+    def dist(self, v):    # ベクトルが表す2点間の距離の計算
         if len(self.a) != len(v.a):
             print('these vectors are not in the same space.')
             return
@@ -69,10 +69,10 @@ class Vec(object):
             return inn
 
 #単語のベクトル化
-def v(arr):
-    s = 0
-    i = 50  # 呟く時点で興味はある
-    l = 0
+def v(arr): # 複数の抽出単語からなるリストを引数に取る
+    s = 0   # 対象
+    i = 50  # 興味 呟く時点で興味はあるのでデフォルトで50
+    l = 0   # 好感度
     le = len(arr)
     for j in range(le):
         if arr[j] in dic1:  # 対象
@@ -133,7 +133,7 @@ def plot(vec: Vec):
     s = int(vec.a[0])
     i = int(vec.a[1])
     l = int(vec.a[2])
-    sub.append(s)
+    sub.append(s)  # グローバルリストに座標を追加
     inte.append(i)
     like.append(l)
 
@@ -183,8 +183,8 @@ def main():
 
     #plot(Vec("0 1 2"))
     #plot(Vec("-50 40 70"))
-    #vv = v(['python3', 'am_interested_in', 'like'])
-    #plot(vv)
+    vv = v(['python3', 'am_interested_in', 'like'])
+    plot(vv)
     #u = v(['viola', 'am_interested_in', 'love'])
     #plot(u)
 
