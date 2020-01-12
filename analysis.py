@@ -185,7 +185,7 @@ def main():
     #plot(Vec("-50 40 70"))
     #vv = v(['python3', 'am_interested_in', 'like'])
     #plot(vv)
-    #u = v(['violin', 'am_interested_in', 'love'])
+    #u = v(['viola', 'am_interested_in', 'love'])
     #plot(u)
 
     try:
