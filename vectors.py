@@ -167,4 +167,7 @@ m2 = Mat(['2 3 4', '5 6 7', '8 9 10'])
 print(m2)
 print(m1 + m2)
 print(m1 - m2)
-print()
+print(m1 * m2)
+
+m3 = Mat(['1 2 3', '4 5 6', '7 8 9', '10 11 12'])
+print(m1 * m3)
