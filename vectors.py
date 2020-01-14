@@ -90,11 +90,16 @@ class Mat(object):
         if n != k or m != l:
             print('they are not for adding.')
             return
-        ans = [[0 for j in range(m)] for i in range(n)]
+        ans = []
+        s = ''
         for i in range(n):
+            s = ''
             for j in range(m):
-                ans[i][j] = self.a[i][j] + mat.a[i][j]
-        print(ans)
+                s += str(self.a[i][j] + mat.a[i][j])
+                if j < m-1:
+                    s += ' '
+            ans.append(s)
+        return ans
 
     def __sub__(self, mat):
         n = len(self.a)
@@ -104,14 +109,40 @@ class Mat(object):
         if n != k or m != l:
             print('they are not for subtraction.')
             return
-        ans = [[0 for j in range(m)] for i in range(n)]
+        ans = []
+        s = ''
         for i in range(n):
+            s = ''
             for j in range(m):
-                ans[i][j] = self.a[i][j] - mat.a[i][j]
-        print(ans)
+                s += str(self.a[i][j] - mat.a[i][j])
+                if j < m-1:
+                    s += ' '
+            ans.append(s)
+        return ans
 
+    def __mul__(self, mat):
+        n = len(self.a)
+        m = len(self.a[0])
+        k = len(mat.a)
+        l = len(mat.a[0])
+        if m != k:
+            print('they are not for multiplication.')
+            return
+        ans = []
+        s = ''
+        for i in range(n):
+            s = ''
+            for j in range(l):
+                sum = 0
+                for h in range(m):
+                    sum += self.a[i][h] * mat.a[h][j]
+                s += str(sum)
+                if j < l-1:
+                    s += ' '
+            ans.append(s)
+        return ans
     
-    
+
 # 以下、動作確認
 v1 = Vec("1 2 3")
 print(v1)
@@ -131,3 +162,9 @@ print(v1.inpro(v3))
 
 m1 = Mat(['1 2 3', '4 5 6', '7 8 9'])
 print(m1)
+
+m2 = Mat(['2 3 4', '5 6 7', '8 9 10'])
+print(m2)
+print(m1 + m2)
+print(m1 - m2)
+print()
