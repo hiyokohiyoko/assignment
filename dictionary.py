@@ -78,7 +78,7 @@ dic3 = {
     'cannot_stand' : -80,
     'dislike' : -70,
     'abhor' : -60,
-    'difficult' : -30
+    'difficult' : -30,
     'am_so-so_about' : 0,
     'like' : 50,
     'exciting' : 60,
