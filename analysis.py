@@ -203,7 +203,7 @@ def main():
                 v2 = Vec(str(sub[b]) + ' ' + str(inte[b]) + ' ' + str(like[b]))
                 print(v1.dist(v2))
                 continue
-            if s == 'correct':
+            if s == 'correct':  # 単語に対応する数値の変更
                 ss = input('word to correct parameter : ')
                 print('current parameter : ', end = "")
                 if ss in dic1:
