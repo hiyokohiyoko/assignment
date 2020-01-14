@@ -220,10 +220,7 @@ def plot(vec: Vec):
     s = int(vec.a[0])
     i = int(vec.a[1])
     l = int(vec.a[2])
-    sub.append(s)  # グローバルリストに座標を追加
-    inte.append(i)
-    like.append(l)
-
+    
     ss = np.array(sub)
     ii = np.array(inte)
     ll = np.array(like)
@@ -239,7 +236,12 @@ def plot(vec: Vec):
     ax.set_ylabel('interest')
     ax.set_zlabel('likability')
     ax.scatter(ss, ii, ll, s = 50, c = 'c', marker = 'o', alpha = 1)
+    ax.scatter(np.array([s]), np.array([i]), np.array([l]), s = 60, c = 'r', marker = 'o', alpha = 1)
     fig.show()
+
+    sub.append(s)  # グローバルリストに座標を追加
+    inte.append(i)
+    like.append(l)
 
 #構文解析
 def t(s: str):
