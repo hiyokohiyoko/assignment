@@ -95,11 +95,11 @@ class Mat(object):
         for i in range(n):
             s = ''
             for j in range(m):
-                s += str(float(self.a[i][j]) + float(mat.a[i][j])
-                if j < m-1:
+                s += str(float(self.a[i][j]) + float(mat.a[i][j]))
+                if j < m - 1:
                     s += ' '
             ans.append(s)
-        return ans
+        return Mat(ans)
 
     def __sub__(self, mat):
         n = len(self.a)
@@ -114,11 +114,11 @@ class Mat(object):
         for i in range(n):
             s = ''
             for j in range(m):
-                s += str(float(self.a[i][j]) - float(mat.a[i][j])
-                if j < m-1:
+                s += str(float(self.a[i][j]) - float(mat.a[i][j]))
+                if j < m - 1:
                     s += ' '
             ans.append(s)
-        return ans
+        return Mat(ans)
 
     def __mul__(self, mat):
         n = len(self.a)
@@ -137,10 +137,10 @@ class Mat(object):
                 for h in range(m):
                     sum += float(self.a[i][h]) * float(mat.a[h][j])
                 s += str(sum)
-                if j < l-1:
+                if j < l - 1:
                     s += ' '
             ans.append(s)
-        return ans
+        return Mat(ans)
     
 
 # 以下、動作確認
@@ -169,5 +169,5 @@ print(m1 + m2)
 print(m1 - m2)
 print(m1 * m2)
 
-m3 = Mat(['1 2 3', '4 5 6', '7 8 9', '10 11 12'])
+m3 = Mat(['1 2 3 4', '5 6 7 8', '9 10 11 12'])
 print(m1 * m3)
