@@ -82,8 +82,35 @@ class Mat(object):
                     print(']')
         return ''
 
-    def __add__(self, m):
-        
+    def __add__(self, mat):
+        n = len(self.a)
+        m = len(self.a[0])
+        k = len(mat.a)
+        l = len(mat.a[0])
+        if n != k or m != l:
+            print('they are not for adding.')
+            return
+        ans = [[0 for j in range(m)] for i in range(n)]
+        for i in range(n):
+            for j in range(m):
+                ans[i][j] = self.a[i][j] + mat.a[i][j]
+        print(ans)
+
+    def __sub__(self, mat):
+        n = len(self.a)
+        m = len(self.a[0])
+        k = len(mat.a)
+        l = len(mat.a[0])
+        if n != k or m != l:
+            print('they are not for subtraction.')
+            return
+        ans = [[0 for j in range(m)] for i in range(n)]
+        for i in range(n):
+            for j in range(m):
+                ans[i][j] = self.a[i][j] - mat.a[i][j]
+        print(ans)
+
+    
     
 # 以下、動作確認
 v1 = Vec("1 2 3")
