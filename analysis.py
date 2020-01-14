@@ -154,6 +154,7 @@ class Mat(space):   # 行列の演算
             ans.append(s)
         return Mat(ans)
 
+
 #単語のベクトル化
 def v(arr): # 複数の抽出単語からなるリストを引数に取る
     s = 0   # 対象
