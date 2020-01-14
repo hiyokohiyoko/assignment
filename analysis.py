@@ -8,13 +8,13 @@ from mpl_toolkits.mplot3d import Axes3D
 
 from dictionary import dic1, dic2, dic3
 
-#ベクトルの演算を定義する
+#ベクトルと行列の演算を定義する
 import math
 
 class space(object):
     pass
 
-class Vec(space):
+class Vec(space):  # ベクトルの演算
     def __init__(self, str: str): # 文字列を引数に取る　Vec("1 2 3")
         self.a = str.split(' ')   # 空白で分割した文字列のリストを保持する
 
@@ -70,6 +70,89 @@ class Vec(space):
             for i in range(len(self.a)):
                 inn += (float(self.a[i]) * float(v.a[i]))
             return inn
+
+class Mat(space):   # 行列の演算
+    def __init__(self, ar):  # arは文字列(行ベクトル)のリスト
+        l = len(ar)
+        self.a = []
+        for i in range(l):
+            self.a.append(ar[i].split(' '))
+    
+    def __repr__(self):
+        n = len(self.a)  # n行
+        m = len(self.a[0])  # m列
+        for i in range(n):
+            for j in range(m):
+                if i + j == 0:
+                    print('[', end = '')
+                print(self.a[i][j], end = '')
+                if j < m - 1:
+                    print(' ', end = '')
+                if j == m - 1 and i < n - 1:
+                    print()
+                if j == m - 1 and i == n - 1:
+                    print(']')
+        return ''
+
+    def __add__(self, mat):
+        n = len(self.a)
+        m = len(self.a[0])
+        k = len(mat.a)
+        l = len(mat.a[0])
+        if n != k or m != l:
+            print('they are not for adding.')
+            return
+        ans = []
+        s = ''
+        for i in range(n):
+            s = ''
+            for j in range(m):
+                s += str(float(self.a[i][j]) + float(mat.a[i][j]))
+                if j < m - 1:
+                    s += ' '
+            ans.append(s)
+        return Mat(ans)
+
+    def __sub__(self, mat):
+        n = len(self.a)
+        m = len(self.a[0])
+        k = len(mat.a)
+        l = len(mat.a[0])
+        if n != k or m != l:
+            print('they are not for subtraction.')
+            return
+        ans = []
+        s = ''
+        for i in range(n):
+            s = ''
+            for j in range(m):
+                s += str(float(self.a[i][j]) - float(mat.a[i][j]))
+                if j < m - 1:
+                    s += ' '
+            ans.append(s)
+        return Mat(ans)
+
+    def __mul__(self, mat):
+        n = len(self.a)
+        m = len(self.a[0])
+        k = len(mat.a)
+        l = len(mat.a[0])
+        if m != k:
+            print('they are not for multiplication.')
+            return
+        ans = []
+        s = ''
+        for i in range(n):
+            s = ''
+            for j in range(l):
+                sum = 0
+                for h in range(m):
+                    sum += float(self.a[i][h]) * float(mat.a[h][j])
+                s += str(sum)
+                if j < l - 1:
+                    s += ' '
+            ans.append(s)
+        return Mat(ans)
 
 #単語のベクトル化
 def v(arr): # 複数の抽出単語からなるリストを引数に取る
