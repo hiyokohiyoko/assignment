@@ -95,7 +95,7 @@ class Mat(object):
         for i in range(n):
             s = ''
             for j in range(m):
-                s += str(self.a[i][j] + mat.a[i][j])
+                s += str(float(self.a[i][j]) + float(mat.a[i][j])
                 if j < m-1:
                     s += ' '
             ans.append(s)
@@ -114,7 +114,7 @@ class Mat(object):
         for i in range(n):
             s = ''
             for j in range(m):
-                s += str(self.a[i][j] - mat.a[i][j])
+                s += str(float(self.a[i][j]) - float(mat.a[i][j])
                 if j < m-1:
                     s += ' '
             ans.append(s)
@@ -135,7 +135,7 @@ class Mat(object):
             for j in range(l):
                 sum = 0
                 for h in range(m):
-                    sum += self.a[i][h] * mat.a[h][j]
+                    sum += float(self.a[i][h]) * float(mat.a[h][j])
                 s += str(sum)
                 if j < l-1:
                     s += ' '
