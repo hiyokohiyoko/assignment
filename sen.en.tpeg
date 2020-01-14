@@ -39,5 +39,5 @@ Sentence =
     / { Wo #Sent9 }
 Wo = {          // 英単語
     [0-9a-zA-Z_-]+
-    #W
+    #Wo
 }

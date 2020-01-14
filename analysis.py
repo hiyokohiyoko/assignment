@@ -195,23 +195,23 @@ def ana(tree):
     if tree == 'NSubj':
         return ana(tree[0])
     if tree == 'Sent1':
-        return v([tree[0], tree[1], tree[2]])
+        return v([str(tree[0]), str(tree[1]), str(tree[2])])
     if tree == 'Sent2':
-        return v([tree[0], tree[1], tree[2]])
+        return v([str(tree[0]), str(tree[1]), str(tree[2])])
     if tree == 'Sent3':
-        return v([tree[0], tree[1], tree[2]])
+        return v([str(tree[0]), str(tree[1]), str(tree[2])])
     if tree == 'Sent4':
-        return v([tree[0], tree[1]])
+        return v([str(tree[0]), str(tree[1])])
     if tree == 'Sent5':
-        return v([tree[0], tree[1]])
+        return v([str(tree[0]), str(tree[1])])
     if tree == 'Sent6':
-        return v([tree[0], tree[1]])
+        return v([str(tree[0]), str(tree[1])])
     if tree == 'Sent7':
-        return v([tree[0], tree[1]])
+        return v([str(tree[0]), str(tree[1])])
     if tree == 'Sent8':
-        return v([tree[0], tree[1]])
+        return v([str(tree[0]), str(tree[1])])
     if tree == 'Sent9':
-        return v([tree[0]])
+        return v([str(tree[0])])
 
 #ベクトルのグラフへのプロット
 def plot(vec: Vec):
