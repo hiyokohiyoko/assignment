@@ -81,6 +81,9 @@ class Mat(object):
                 if j == m - 1 and i == n - 1:
                     print(']')
         return ''
+
+    def __add__(self, m):
+        
     
 # 以下、動作確認
 v1 = Vec("1 2 3")
